@@ -1,36 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import ContactForm from './components/ContactForm';
+import Filter from './components/Filter';
+import { ContactList } from './components/ContactList';
+import { useSelector } from 'react-redux';
+import { selectIsError, selectIsLoading } from './redux/contactsSlice';
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  
+    const error = useSelector(selectIsError)
+    const loading = useSelector(selectIsLoading)
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <ContactForm />
+      <Filter />
+      {loading && <h1>LOADING</h1>}
+     {!error ?  <ContactList /> : <h1>OPS</h1>}
+    </div>
+  );
+};
 
-export default App
+export default App;
