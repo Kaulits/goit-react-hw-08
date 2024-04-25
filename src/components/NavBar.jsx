@@ -1,24 +1,36 @@
 
 
-import { StyledHeader, StyledTitle, StyledEmail, StyledList, StyledItem, StyledNavLink } from '../styles/App.Styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { StyledHeader, StyledTitle, StyledEmail, StyledList, StyledItem, StyledNavLink, StyledButton } from '../styles/App.Styled';
+import { selectIsLoggedIn, selectUser } from '../redux/auth/slice';
+import { logoutThunk } from '../redux/auth/operations';
 
 const NavBar = () => {
+  const user = useSelector(selectUser)
+   const isLoggedIn = useSelector(selectIsLoggedIn)
+ const dispatch = useDispatch()
   return (
     <StyledHeader>
-      <div>
-        <StyledTitle>Contacts</StyledTitle>
-        <StyledEmail>test@user</StyledEmail>
-      </div>
+        <StyledTitle>React HW 8</StyledTitle>
+        <StyledEmail>{user}</StyledEmail>
       <StyledList>
         <StyledItem>
           <StyledNavLink to='/' >Home</StyledNavLink>
         </StyledItem>
         <StyledItem>
-          <StyledNavLink to='/login' >Login</StyledNavLink>
+          <StyledNavLink to='/contacts' >Contacts</StyledNavLink>
         </StyledItem>
-        <StyledItem>
-          <StyledNavLink to='/register' >Register</StyledNavLink>
-        </StyledItem>
+        {!isLoggedIn && (
+          <>
+            <StyledItem>
+              <StyledNavLink to='/login' >Login</StyledNavLink>
+            </StyledItem>
+            <StyledItem>
+              <StyledNavLink to='/register' >Register</StyledNavLink>
+            </StyledItem>
+          </>
+        )}
+        {isLoggedIn && <StyledButton onClick={() => dispatch(logoutThunk())}>Logout</StyledButton>}
       </StyledList>
     </StyledHeader>
   );

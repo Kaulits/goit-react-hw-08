@@ -1,11 +1,24 @@
 import { toast } from "react-toastify"
 import AuthForm from "../components/AuthForm"
+import { useDispatch } from "react-redux"
+import { registerThunk } from "../redux/auth/operations"
+import { useNavigate } from "react-router-dom"
 
 
 const Register = () => {
-    const handleSubmit = (values) => {
-        toast.info('Register success')
-    }
+  const dispatch = useDispatch()  
+  const navigate = useNavigate()
+  const handleSubmit = (values) => {
+    dispatch(registerThunk(values))
+      .unwrap()
+      .then(data => {
+        toast.success(`Welcome, ${data.user.name}!`)
+        navigate('/')
+      })
+    .catch(err => toast.error('Credentials invalid'))
+    
+  }
+  
       const initialValues = {
         name: '',
         email: '',

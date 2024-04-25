@@ -88,6 +88,7 @@ export const StyledList = styled.ul`
   list-style-type: none; 
   display: flex; 
   gap: 10px; 
+  align-items: center;
 `;
 
 export const StyledItem = styled.li`

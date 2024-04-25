@@ -1,8 +1,9 @@
+import ContactFormBase from "../components/Contact/ContactFormBase";
 
 const Home = () => {
   return (
     <div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At asperiores quia provident molestiae harum sequi odit exercitationem veniam deserunt commodi assumenda consequatur quisquam minima quibusdam modi similique, accusantium aliquam consequuntur.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, id quo velit quia amet corporis consectetur enim eaque nam sunt beatae inventore expedita quos sed similique non molestiae atque nesciunt!</p>
     </div>
   )
 }
