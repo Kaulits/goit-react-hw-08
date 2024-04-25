@@ -1,5 +1,5 @@
-import { ErrorMessage, Formik } from 'formik';
-import { StyledFormWrapper, StyledField, StyledButton, StyledQ, StyledAuthForm, StyledLabel, StyledErrorMessage } from '../styles/App.Styled';
+import { Formik } from 'formik';
+import { StyledFormWrapper, StyledButton, StyledQ, StyledAuthForm, } from '../styles/App.Styled';
 import { Link } from 'react-router-dom';
 import CustomField from './CustomField';
 
