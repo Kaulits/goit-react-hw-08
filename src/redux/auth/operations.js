@@ -25,12 +25,26 @@ export const loginThunk = createAsyncThunk('auth/login', async(credentials, thun
     }
 })
 
-export const logoutThunk = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logoutThunk = createAsyncThunk('auth/logout', async (_, thunkApi) => {
     try {
         await goitApi.post('users/logout')
         clearToken()
     }
     catch (error) {
-        return thunkAPI.rejectWithValue(error.message)
+        return thunkApi.rejectWithValue(error.message)
+    }
+})
+
+export const refreshThunk = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
+    const savedToken = thunkApi.getState().auth.token
+    if (!savedToken) {
+        return thunkApi.rejectWithValue('Unuble to fetch user')
+    }
+    setToken(savedToken)
+    try {
+        const { data } = await goitApi.get('/users/current')
+        return data
+    } catch (error) {
+        return thunkApi.rejectWithValue(error.message)
     }
 })

@@ -9,8 +9,15 @@ import Contacts from './pages/Contacts';
 import NotFound from './pages/NotFound';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshThunk } from './redux/auth/operations';
 
 const App = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(refreshThunk())
+  }, [dispatch])
   return (
     <>
       <ToastContainer />
