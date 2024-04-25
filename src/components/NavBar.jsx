@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+
 
 import { StyledHeader, StyledTitle, StyledEmail, StyledList, StyledItem, StyledNavLink } from '../styles/App.Styled';
 
@@ -12,6 +12,12 @@ const NavBar = () => {
       <StyledList>
         <StyledItem>
           <StyledNavLink to='/' >Home</StyledNavLink>
+        </StyledItem>
+        <StyledItem>
+          <StyledNavLink to='/login' >Login</StyledNavLink>
+        </StyledItem>
+        <StyledItem>
+          <StyledNavLink to='/register' >Register</StyledNavLink>
         </StyledItem>
       </StyledList>
     </StyledHeader>

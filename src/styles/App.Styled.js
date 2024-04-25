@@ -102,6 +102,7 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 import { Link } from 'react-router-dom';
+import { Field, Form } from 'formik';
 
 export const StyledNotFound = styled.div`
   text-align: center;
@@ -113,7 +114,7 @@ export const StyledTitleNotFound = styled.h1`
   color: #333;
 `;
 
-export const StyledLinkNotFound = styled(Link)`
+export const StyledLinkNotFound = styled(NavLink)`
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
@@ -127,3 +128,47 @@ export const StyledLinkNotFound = styled(Link)`
     background-color: #0056b3;
   }
 `;
+
+
+
+export const StyledFormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+export const StyledAuthForm = styled(Form)`
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 5px gray;
+`;
+
+export const StyledField = styled(Field)`
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+`;
+
+export const StyledButton = styled.button`
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+`;
+
+
+
+export const StyledQ = styled.p`
+margin-top: 5px;
+
+`
