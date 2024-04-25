@@ -1,22 +1,30 @@
-import React from 'react';
-import ContactForm from './components/ContactForm';
-import Filter from './components/Filter';
-import { ContactList } from './components/ContactList';
-import { useSelector } from 'react-redux';
-import { selectIsError, selectIsLoading } from './redux/contactsSlice';
+
+import { Routes, Route } from 'react-router-dom';
+
+import Layout from './components/Layout';
+import  Home from './pages/Home'
+import  Contacts from './pages/Contacts'
+import  NotFound from './pages/NotFound'
 
 const App = () => {
   
-    const error = useSelector(selectIsError)
-    const loading = useSelector(selectIsLoading)
+ 
   return (
-    <div>
-      <ContactForm />
-      <Filter />
-      {loading && <h1>LOADING</h1>}
-     {!error ?  <ContactList /> : <h1>OPS</h1>}
-    </div>
+    <>
+
+      <Routes>
+        <Route path='/' element={<Layout />} >
+          <Route index element={<Home />} />
+          <Route path='contacts' element={<Contacts />} />
+        </Route>
+        <Route path='*' element={<NotFound/>} />
+</Routes>
+      
+    </>
   );
 };
+
+
+
 
 export default App;

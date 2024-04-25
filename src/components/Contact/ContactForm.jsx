@@ -5,10 +5,10 @@ import {
   StyledTitle,
   StyledDesc,
   StyledBtn,
-} from '../styles/App.Styled';
+} from '../../styles/App.Styled';
 import { useDispatch } from 'react-redux';
 
-import { addContactThunk } from '../redux/operations';
+import { addContactThunk } from '../../redux/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');

@@ -7,14 +7,15 @@ import { Global } from './styles/Global.js'
 import { Provider } from 'react-redux';
 
 import {  store } from './redux/store.js';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
- 
-    <Provider store={store}>
+ <BrowserRouter><Provider store={store}>
         <App /> <Global />
    
     </Provider>
-
+</BrowserRouter>
+    
  
 );
