@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 import Filter from './Filter';
 import { ContactList } from './ContactList';
 import { useSelector } from 'react-redux';
-import { selectIsError, selectIsLoading } from '../../redux/contactsSlice';
+import { selectIsError, selectIsLoading } from '../../redux/contacts/slice';
 
 const ContactFormBase = () => {
   

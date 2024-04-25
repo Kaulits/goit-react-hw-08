@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledDesc, StyledContact } from '../../styles/App.Styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFilter } from '../../redux/contactsSlice';
+import { updateFilter } from '../../redux/contacts/slice';
 
 const Filter = () => {
   const dispatch = useDispatch();

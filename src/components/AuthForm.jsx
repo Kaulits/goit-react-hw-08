@@ -1,24 +1,28 @@
-import { Formik,  } from 'formik';
-import { StyledFormWrapper, StyledField, StyledButton, StyledQ } from '../styles/App.Styled';
-import { StyledAuthForm } from '../styles/App.Styled';
+import { ErrorMessage, Formik } from 'formik';
+import { StyledFormWrapper, StyledField, StyledButton, StyledQ, StyledAuthForm, StyledLabel, StyledErrorMessage } from '../styles/App.Styled';
 import { Link } from 'react-router-dom';
+import CustomField from './CustomField';
 
-const AuthForm = ({ title, onSubmit, initialValues, type }) => {
+
+const AuthForm = ({ title, onSubmit, initialValues, type, validationSchema }) => {
   return (
     <StyledFormWrapper>
-      <Formik onSubmit={onSubmit} initialValues={initialValues}>
+      <Formik validationSchema={validationSchema} onSubmit={onSubmit} initialValues={initialValues}>
         <StyledAuthForm>
           {type === 'register' && (
-            <StyledField type='text' name='name' placeholder='Enter your name' />
+            <CustomField name='name' placeholder='Enter your name' />
+  
           )}
-          <StyledField type='text' name='email' placeholder='Enter your email' />
-          <StyledField type='password' name='password' placeholder='Enter your password' />
+           <CustomField name='email' placeholder='Enter your email' />
+           <CustomField name='password' type='password' placeholder='Enter your password' />
+        
           <StyledButton type='submit'>
             {title}
-                  </StyledButton>
-                  <StyledQ>You {type === 'register' ? "already have an account?" : "dont have an account?"}{'  '}
-                      <Link to={type === 'register' ? '/login' : '/register'}>{type === 'register' ? ' Login' : ' Register'}</Link>
-                  </StyledQ>  
+          </StyledButton>
+          <StyledQ>
+            You {type === 'register' ? "already have an account?" : "dont have an account?"}{'  '}
+            <Link to={type === 'register' ? '/login' : '/register'}>{type === 'register' ? ' Login' : ' Register'}</Link>
+          </StyledQ>  
         </StyledAuthForm>
       </Formik>
     </StyledFormWrapper>

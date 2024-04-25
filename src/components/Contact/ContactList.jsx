@@ -8,7 +8,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
-import { deleteContactThunk,  fetchDataThunk } from '../../redux/operations';
+import { deleteContactThunk,  fetchDataThunk } from '../../redux/contacts/operations';
 
 export const ContactList = () => {
   const { contacts, loading } = useSelector(state => state.contacts);

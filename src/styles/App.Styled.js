@@ -148,7 +148,6 @@ export const StyledAuthForm = styled(Form)`
 
 export const StyledField = styled(Field)`
   width: 100%;
-  margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -173,3 +172,15 @@ export const StyledQ = styled.p`
 margin-top: 5px;
 
 `
+
+
+export const StyledLabel = styled.label`
+  margin-bottom: 10px;
+  display: block;
+  margin-top: 10px;
+`;
+
+export const StyledErrorMessage = styled.p`
+  color: red; 
+  margin-top: 5px;
+`;
