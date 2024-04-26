@@ -184,3 +184,11 @@ export const StyledErrorMessage = styled.p`
   color: red; 
   margin-top: 5px;
 `;
+
+export const StyledLoader = styled.div`
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: 100vh;
+ flex-direction: column;
+`;

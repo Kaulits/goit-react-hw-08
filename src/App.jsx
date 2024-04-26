@@ -9,18 +9,22 @@ import Contacts from './pages/Contacts';
 import NotFound from './pages/NotFound';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from './redux/auth/operations';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
+import { selectIsRefreshing } from './redux/auth/slice';
+import Loader from './components/Loader';
 
 const App = () => {
   const dispatch = useDispatch()
+const isRefreshing = useSelector(selectIsRefreshing)
+
   useEffect(() => {
     dispatch(refreshThunk())
   }, [dispatch])
-  return (
+  return isRefreshing ? (<Loader/>) : (
     <>
       <ToastContainer />
       <Routes>
