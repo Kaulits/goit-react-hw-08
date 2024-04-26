@@ -2,20 +2,23 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import Contacts from './pages/Contacts';
-import NotFound from './pages/NotFound';
-import Register from './pages/Register';
-import Login from './pages/Login';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
+
 import { refreshThunk } from './redux/auth/operations';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import { selectIsRefreshing } from './redux/auth/slice';
 import Loader from './components/Loader';
+import Layout from './components/Layout';
+
+const Contacts = lazy(() => import('./pages/Contacts'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const Register = lazy(() => import('./pages/Register'))
+const Login = lazy(() => import('./pages/Login'))
+const Home = lazy(() => import('./pages/Home'))
+
+
 
 const App = () => {
   const dispatch = useDispatch()
