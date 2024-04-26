@@ -8,7 +8,7 @@ const Layout = () => {
   return (
       <div>
       <NavBar />
-      <Suspense fallback={null}><Outlet /></Suspense>
+   <Outlet />
           
     </div>
   )

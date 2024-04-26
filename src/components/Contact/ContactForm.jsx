@@ -12,12 +12,12 @@ import { addContactThunk } from '../../redux/contacts/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addContactThunk({name, phone, createdAt: new Date().toLocaleTimeString()}));
+    dispatch(addContactThunk({name, number}));
     setName('');
     setNumber('');
   };
@@ -41,7 +41,7 @@ export const ContactForm = () => {
         name="phone"
       
         required
-        value={phone}
+        value={number}
         onChange={e => setNumber(e.target.value)}
         placeholder="XXX-XXX-XXXX"
       />

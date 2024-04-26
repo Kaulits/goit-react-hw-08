@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy, useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 
 import { refreshThunk } from './redux/auth/operations';
 import PrivateRoute from './routes/PrivateRoute';
@@ -28,7 +28,7 @@ const isRefreshing = useSelector(selectIsRefreshing)
     dispatch(refreshThunk())
   }, [dispatch])
   return isRefreshing ? (<Loader/>) : (
-    <>
+    <Suspense fallback={null}>
       <ToastContainer />
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -52,7 +52,7 @@ const isRefreshing = useSelector(selectIsRefreshing)
         } />
         <Route path='*' element={<NotFound />} />
       </Routes>
-    </>
+    </Suspense>
   );
 };
 
