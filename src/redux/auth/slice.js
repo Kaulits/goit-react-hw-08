@@ -43,7 +43,7 @@ const slice = createSlice({
                 state.isRefreshing = true
             })
             .addCase(refreshThunk.rejected, state => {
-                state.isRefreshing = true
+                state.isRefreshing = false
             })
             .addCase(refreshThunk.fulfilled, (state, { payload }) => {
             state.user.name = payload.name
